@@ -1,0 +1,35 @@
+{
+    "name": "armincms/truth-or-dare",
+    "description": "A Laravel Nova tool.",
+    "keywords": [
+        "laravel",
+        "nova",
+        "armincms",
+        "truth",
+        "dare",
+        "game"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0",
+        "armincms/armincms": "*",
+        "armincms/raw-data": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Armincms\\TruthOrDare\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Armincms\\TruthOrDare\\ToolServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
