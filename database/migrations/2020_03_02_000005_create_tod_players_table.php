@@ -19,14 +19,10 @@ class CreateTODPlayersTable extends Migration
             $table->string('name'); 
             $table->enum('gender', Common::genders()->keys()->all())->default('male');
             $table->enum('age', Common::ages()->keys()->all())->default('adult');
-            $table->enum('marital', Common::maritals()->keys()->all())->default('single'); 
-            $table->unsignedBigInteger('game_id'); 
+            $table->enum('marital', Common::maritals()->keys()->all())->default('single');  
+            $table->auth();
             $table->timestamps();     
-            $table->softDeletes();
-            
-            $table->foreign('game_id')->references('id')->on('tod_games')
-                  ->onDelete('cascade')
-                  ->onUpdate('cascade');
+            $table->softDeletes(); 
         });
     }
 
