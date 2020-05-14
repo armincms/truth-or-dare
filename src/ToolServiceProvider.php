@@ -15,6 +15,8 @@ class ToolServiceProvider extends ServiceProvider
      */
     public function boot()
     {  
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+
         LaravelNova::serving(function (ServingNova $event) {
             LaravelNova::resources([
                 Nova\Game::class,
