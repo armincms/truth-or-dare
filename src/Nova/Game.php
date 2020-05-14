@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text; 
 use Laravel\Nova\Fields\Select; 
-use Laravel\Nova\Fields\HasMany; 
-use Armincms\Fields\MorphToMany; 
+use Laravel\Nova\Fields\HasMany;  
 use Armincms\Fields\BelongsToMany; 
 use Armincms\RawData\Common;
 
@@ -51,11 +50,11 @@ class Game extends Resource
     public function fields(Request $request)
     {
         return[
-            ID::make("ID")->sortable(), 
+            ID::make('ID')->sortable(), 
 
             $this->authField(),
 
-            Text::make(__("Game Id"), function() {
+            Text::make(__('Game Id'), function() {
                 return $this->game;
             })->sortable(), 
 
@@ -65,11 +64,11 @@ class Game extends Resource
                 ->sortable() 
                 ->default(Common::levels()->keys()->first()),
 
-            MorphToMany::make(__("Themes"), 'themes', Theme::class),
+            BelongsToMany::make(__('Themes'), 'themes', Theme::class),
 
-            BelongsToMany::make(__("Players"), 'players', Player::class),
+            BelongsToMany::make(__('Players'), 'players', Player::class),
 
-            HasMany::make(__("Stages"), 'stages', Stage::class),
+            HasMany::make(__('Stages'), 'stages', Stage::class),
 
         ];
     } 

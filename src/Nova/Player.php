@@ -44,12 +44,13 @@ class Player extends Resource
     public function fields(Request $request)
     {
         return[
-            ID::make("ID")->sortable(),  
+            ID::make('ID')
+                ->sortable(),  
 
-            Text::make(__("Name"), "name")
-                    ->sortable()
-                    ->required()
-                    ->rules("required"),
+            Text::make(__('Name'), 'name')
+                ->sortable()
+                ->required()
+                ->rules('required'),
 
             Select::make(__('Age'), 'age')
                 ->options(Common::ages()) 
@@ -69,7 +70,8 @@ class Player extends Resource
                 ->sortable() 
                 ->default(Common::maritals()->keys()->first()), 
 
-            BelongsToMany::make(__("Game"), 'games', Game::class),
+            BelongsToMany::make(__('Game'), 'games', Game::class)
+                ->sortable(),
 
         ];
     } 

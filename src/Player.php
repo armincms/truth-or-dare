@@ -6,6 +6,6 @@ class Player extends Model
 {  
 	public function games()
 	{
-		return $this->belongsToMany(Game::class, 'tod_stages');
+		return $this->belongsToMany(Game::class, 'tod_game_player');
 	}
 }

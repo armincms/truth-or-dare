@@ -47,7 +47,7 @@ class Game extends Model implements Authorizable
     
     public function players()
     {
-        return $this->belongsToMany(Player::class, 'tod_stages');
+        return $this->belongsToMany(Player::class, 'tod_game_player');
     } 
 
     public function stages()
