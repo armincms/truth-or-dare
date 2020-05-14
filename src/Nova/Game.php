@@ -5,6 +5,7 @@ namespace Armincms\TruthOrDare\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text; 
+use Laravel\Nova\Fields\Number; 
 use Laravel\Nova\Fields\Select; 
 use Laravel\Nova\Fields\HasMany;  
 use Armincms\Fields\BelongsToMany; 
@@ -63,6 +64,11 @@ class Game extends Resource
                 ->displayUsingLabels() 
                 ->sortable() 
                 ->default(Common::levels()->keys()->first()),
+
+            Number::make(__('Stages'), 'stage')
+                ->required()
+                ->rules('required')
+                ->default(1),
 
             BelongsToMany::make(__('Themes'), 'themes', Theme::class),
 
