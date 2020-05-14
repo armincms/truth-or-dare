@@ -8,7 +8,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\BelongsTo; 
-use Armincms\Fields\MorphToMany;
+use Armincms\Fields\BelongsToMany;
 use Armincms\RawData\Common;
 use OptimistDigital\MultiselectField\Multiselect;
 
@@ -73,7 +73,7 @@ class Consequence extends Question
                         );
                     });
             } elseif($field instanceof BelongsTo) {
-                return MorphToMany::make(__("Themes"), 'themes', Theme::class);
+                return BelongsToMany::make(__("Themes"), 'themes', Theme::class);
             } else {
                 return $field;
             }             
