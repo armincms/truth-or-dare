@@ -5,6 +5,8 @@ namespace Armincms\TruthOrDare;
 
 class Question extends Model
 { 
+	use InteractsWithPlayer;
+	
 	public function theme()
 	{
 		return $this->belongsTo(Theme::class);
