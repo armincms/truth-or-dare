@@ -13,6 +13,17 @@ class Stage extends Model
         'player', 'game', 'question', 'consequence'
     ];
 
+    public static function boot()
+    {
+        parent::boot();
+
+        static::saving(function($model) {
+            while(static::whereStage($model->stage)->whereId('!=', $model->id)->exists()){
+                $model->increment('stage');
+            }
+        });
+    }
+
 
     public function player()
     {
@@ -32,5 +43,5 @@ class Stage extends Model
     public function consequence()
     {
         return $this->belongsTo(Consequence::class);
-    } 
+    }  
 }
